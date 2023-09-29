@@ -15,10 +15,23 @@ matriz = []
 
 for linha in range(6):
    lista = []
-   maiorNumero = None  # Definir maiorNumero para None a cada nova linha
    for coluna in range(6):
        num = randint(1, 50)
        lista.append(num)
-       if maiorNumero is None or num > maiorNumero:
-           maiorNumero = num
    matriz.append(lista)
+
+exibeMatriz(matriz)
+
+maiores = []
+
+for i in range(len(matriz)):
+    maiorNumero = None
+    for j in range(len(matriz[0])):
+        if maiorNumero is None or matriz[i][j] > maiorNumero:
+            maiorNumero = matriz[i][j]
+
+    for j in range(len(matriz[0])):
+        matriz[i][j] *= maiorNumero
+
+print("Matriz modificada")
+exibeMatriz(matriz)
